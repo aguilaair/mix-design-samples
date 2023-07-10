@@ -29,7 +29,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  mix: ^0.0.5
+  mix: 
+    git: 
+      url: https://github.com/conceptadev/mix
 
 
   # The following adds the Cupertino Icons font to your application.

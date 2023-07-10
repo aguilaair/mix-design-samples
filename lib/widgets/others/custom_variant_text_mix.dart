@@ -1,16 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:mix/mix.dart';
 
-const myStyle = Variant('myStyle');
+const myStyle = StyleVariant('myStyle');
 
-Mix get style => Mix(
-      titleCase(),
-      myStyle(
-        font(
-          color: Colors.red,
-          size: 24.0,
-        ),
-      ),
+StyleMix get style => StyleMix(
+      titleCase,
+      myStyle(textStyle(
+        color: Colors.red,
+        fontSize: 24.0,
+      )),
     );
 
 class VariantTextMix extends StatelessWidget {
@@ -21,14 +19,14 @@ class VariantTextMix extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
-        TextMix(
+        StyledText(
           'design system',
-          mix: style,
+          style: style,
         ),
-        TextMix(
+        StyledText(
           'design system',
-          mix: style,
-          variant: myStyle,
+          style: style,
+          variants: const [myStyle],
         ),
       ],
     );

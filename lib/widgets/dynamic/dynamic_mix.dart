@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:mix/mix.dart';
 
-Mix get dynamicMix => Mix(
+StyleMix get dynamicMix => StyleMix(
       height(150),
       width(150),
       rounded(20),
       elevation(8),
-      bgColor(Colors.green),
+      backgroundColor(Colors.green),
       border(
         color: Colors.green.shade800,
         width: 8,
       ),
-      dark(
-        bgColor(Colors.grey),
+      onDark(
+        backgroundColor(Colors.grey),
         border(
           color: Colors.white,
         ),
@@ -25,7 +25,7 @@ class DynamicBoxSample extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Box(
-      mix: dynamicMix,
+      style: dynamicMix,
     );
   }
 }

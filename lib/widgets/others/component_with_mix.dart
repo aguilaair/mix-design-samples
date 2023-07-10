@@ -6,22 +6,22 @@ class ComponentWithMix extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final style = Mix(
+    final style = StyleMix(
       elevation(8),
       rounded(20),
-      bgColor(Colors.purple),
-      borderWidth(5),
-      borderColor(Colors.deepPurple),
+      backgroundColor(Colors.purple),
+      border(width: 5, color: Colors.deepPurple),
       padding(20),
-      font(
+      textStyle(
         color: Colors.white,
-        size: 20,
+        fontSize: 20,
       ),
     );
     return Box(
-      mix: style,
-      child: const TextMix(
+      style: style,
+      child: StyledText(
         'Welcome to MIX',
+        style: style,
       ),
     );
   }

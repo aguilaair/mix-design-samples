@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mix_design_samples/sample_code.dart';
-import 'package:mix_design_samples/widgets/dynamic/dynamic_mix.dart';
+import 'package:mix_design_samples/widgets/animated/animated_pressable_sample.dart';
 
-import 'widgets/animated/animated_pressable_sample.dart';
 import 'widgets/basics/design_tokens_sample.dart';
 import 'widgets/basics/basic_mix.dart';
 import 'widgets/basics/box_sample.dart';
@@ -106,9 +105,8 @@ class _MyAppState extends State<MyApp> {
     return Container(
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
-        color: Colors.orange[100],
-        border: Border.all(color: Colors.black26, width: 1.0)
-      ),
+          color: Colors.orange[100],
+          border: Border.all(color: Colors.black26, width: 1.0)),
       height: double.infinity,
       child: Material(
         color: Colors.transparent,
@@ -118,7 +116,10 @@ class _MyAppState extends State<MyApp> {
           minLines: 2,
           maxLines: 1000,
           readOnly: true,
-          style: const TextStyle(fontSize: 16.0, color: Colors.black,),
+          style: const TextStyle(
+            fontSize: 16.0,
+            color: Colors.black,
+          ),
           controller: TextEditingController(text: snippet),
         ),
       ),
@@ -144,64 +145,63 @@ class _MyAppState extends State<MyApp> {
         colorScheme: ThemeData.light().colorScheme.copyWith(
               primary: Colors.blue,
             ),
-        elevatedButtonTheme: ElevatedButtonThemeData(style:
-          ElevatedButton.styleFrom(primary: Colors.orange)),
+        elevatedButtonTheme: ElevatedButtonThemeData(
+            style: ElevatedButton.styleFrom(backgroundColor: Colors.orange)),
       ),
       debugShowCheckedModeBanner: false,
       home: SafeArea(
         child: Scaffold(
           appBar: PreferredSize(
             preferredSize: const Size(double.infinity, 70.0),
-            child: Builder(
-              builder: (BuildContext context) {
-                return Container(
-                  decoration: BoxDecoration(
-                    color: Theme.of(context).colorScheme.primary,
-                    boxShadow: const [
-                      BoxShadow(
-                          color: Colors.black54,
-                          offset: Offset(0.0, 2.0),
-                          blurRadius: 8.0,
-                          spreadRadius: 4.0)
-                    ],
-                  ),
-                  height: 100.0,
-                  alignment: Alignment.center,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Flexible(
-                        flex: 2,
-                        fit: FlexFit.loose,
-                        child: Container(
-                          padding: const EdgeInsets.only(left: 12),
-                          alignment: Alignment.centerLeft,
-                          child: Text(_sampleName,
-                              style: const TextStyle(color: Colors.white, fontSize: 25.0)),
+            child: Builder(builder: (BuildContext context) {
+              return Container(
+                decoration: BoxDecoration(
+                  color: Theme.of(context).colorScheme.primary,
+                  boxShadow: const [
+                    BoxShadow(
+                        color: Colors.black54,
+                        offset: Offset(0.0, 2.0),
+                        blurRadius: 8.0,
+                        spreadRadius: 4.0)
+                  ],
+                ),
+                height: 100.0,
+                alignment: Alignment.center,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Flexible(
+                      flex: 2,
+                      fit: FlexFit.loose,
+                      child: Container(
+                        padding: const EdgeInsets.only(left: 12),
+                        alignment: Alignment.centerLeft,
+                        child: Text(_sampleName,
+                            style: const TextStyle(
+                                color: Colors.white, fontSize: 25.0)),
+                      ),
+                    ),
+                    Flexible(
+                      flex: 1,
+                      fit: FlexFit.loose,
+                      child: Container(
+                        alignment: Alignment.centerRight,
+                        padding: const EdgeInsets.only(right: 12),
+                        child: ElevatedButton(
+                          onPressed: () {
+                            setShowCode(!_showCode);
+                          },
+                          child: const Text("Code"),
                         ),
                       ),
-                      Flexible(
-                        flex: 1,
-                        fit: FlexFit.loose,
-                        child: Container(
-                          alignment: Alignment.centerRight,
-                          padding: const EdgeInsets.only(right: 12),
-                          child: ElevatedButton(
-                            onPressed: () { setShowCode(!_showCode); },
-                            child: const Text("Code"),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                );
-              }
-            ),
+                    ),
+                  ],
+                ),
+              );
+            }),
           ),
           body: Center(
-            child: _showCode? 
-                   createCodeWidget() :
-                   createSample(),
+            child: _showCode ? createCodeWidget() : createSample(),
           ),
           bottomNavigationBar: Container(
             constraints: const BoxConstraints(maxHeight: 40.0),
@@ -214,7 +214,8 @@ class _MyAppState extends State<MyApp> {
                           (buildContext) => SampleSelector(setSampleName));
                     },
                     child: const Text("Choose Sample",
-                        style: TextStyle(color: Colors.white, fontSize: 20.0)))),
+                        style:
+                            TextStyle(color: Colors.white, fontSize: 20.0)))),
           ),
         ),
       ),

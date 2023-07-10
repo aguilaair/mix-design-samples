@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:mix/mix.dart';
 
-Mix get animPressableMix => Mix(
+StyleMix get animPressableMix => StyleMix(
       elevation(8),
       padding(20),
       rounded(30),
-      bgColor(Colors.greenAccent),
-      animated(),
+      backgroundColor(Colors.greenAccent),
+      animation(),
       scale(1),
-      press(
+      onPress(
         scale(0.9),
         elevation(1),
       ),
@@ -21,8 +21,10 @@ class AnimatedPressableSample extends StatelessWidget {
   Widget build(BuildContext context) {
     return Pressable(
       onPressed: () {},
-      mix: animPressableMix,
-      child: const TextMix('Animated Button'),
+      child: StyledText(
+        'animation Button',
+        style: animPressableMix,
+      ),
     );
   }
 }

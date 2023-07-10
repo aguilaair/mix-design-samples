@@ -9,7 +9,7 @@ class BasicMix extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Box(
-      mix: boxMix,
+      style: boxMix,
     );
   }
 }

@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:mix/mix.dart';
 
-Mix get flexBoxMix => Mix(
-      gap(16),
-      mainAxis(MainAxisAlignment.center),
-      font(
-        size: 26,
-        color: Colors.blue,
-      ),
-    );
+StyleMix get flexBoxMix => StyleMix(
+    gap(16),
+    mainAxisAlignment(MainAxisAlignment.center),
+    textStyle(
+      color: Colors.blue,
+      fontSize: 26,
+    ));
 
 class FlexBoxSample extends StatelessWidget {
   const FlexBoxSample({Key? key}) : super(key: key);
@@ -16,12 +15,21 @@ class FlexBoxSample extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FlexBox(
-      mix: flexBoxMix,
+      style: flexBoxMix,
       direction: Axis.vertical,
-      children: const [
-        TextMix('Item 1'),
-        TextMix('Item 2'),
-        TextMix('Item 3'),
+      children: [
+        StyledText(
+          'Item 1',
+          style: flexBoxMix,
+        ),
+        StyledText(
+          'Item 2',
+          style: flexBoxMix,
+        ),
+        StyledText(
+          'Item 3',
+          style: flexBoxMix,
+        ),
       ],
     );
   }

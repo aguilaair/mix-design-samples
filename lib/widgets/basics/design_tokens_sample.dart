@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:mix/mix.dart';
 
-Mix get basicMix => Mix(
+StyleMix get basicMix => StyleMix(
       height(150),
       width(150),
       rounded(20),
       elevation(8),
-      bgColor($primary),
+      backgroundColor($M3Color.primary),
     );
 
 class DesignTokensSample extends StatelessWidget {
@@ -15,7 +15,7 @@ class DesignTokensSample extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Box(
-      mix: basicMix,
+      style: basicMix,
     );
   }
 }

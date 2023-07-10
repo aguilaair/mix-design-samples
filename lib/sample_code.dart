@@ -1,39 +1,36 @@
-import 'package:flutter/material.dart';
+// ignore_for_file: constant_identifier_names
 
-const String
-  BASIC_MIX = "Basic Mix",
-  BOX_SAMPLE = "Box Sample",
-  FLEXBOX_SAMPLE = "Flexbox Sample",
-  ICONMIX_SAMPLE = "IconMix Sample",
-  PRESSABLE_SAMPLE = "Pressable Sample",
-  ANIMATED_PRESSABLE_SAMPLE = "Animated Pressable Sample",
-  TEXTMIX_SAMPLE = "TextMix Sample",
-  DESIGN_TOKENS_SAMPLE = "Design Tokens Sample";
+const String BASIC_MIX = "Basic Mix",
+    BOX_SAMPLE = "Box Sample",
+    FLEXBOX_SAMPLE = "Flexbox Sample",
+    ICONMIX_SAMPLE = "IconMix Sample",
+    PRESSABLE_SAMPLE = "Pressable Sample",
+    ANIMATED_PRESSABLE_SAMPLE = "animation Pressable Sample",
+    TEXTMIX_SAMPLE = "TextMix Sample",
+    DESIGN_TOKENS_SAMPLE = "Design Tokens Sample";
 
 class SampleCode {
   const SampleCode();
   static const Map<String, String> _snippets = {
-    BASIC_MIX: 
-'''
+    BASIC_MIX: '''
 class BasicMix extends StatelessWidget {
   const BasicMix({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Box(
-      mix: boxMix,
+      style: boxMix,
     );
   }
 }
 ''',
-    BOX_SAMPLE:
-'''
-  Mix get boxMix => Mix(
+    BOX_SAMPLE: '''
+  StyleMix get boxMix => StyleMix(
         height(150),
         width(150),
         rounded(20),
         elevation(8),
-        bgColor(Colors.green),
+        backgroundColor(Colors.green),
       );
 
   class BoxSample extends StatelessWidget {
@@ -42,14 +39,13 @@ class BasicMix extends StatelessWidget {
     @override
     Widget build(BuildContext context) {
       return Box(
-        mix: boxMix,
+        style: boxMix,
       );
     }
   }
 ''',
-  FLEXBOX_SAMPLE:
-'''
-  Mix get flexBoxMix => Mix(
+    FLEXBOX_SAMPLE: '''
+  StyleMix get flexBoxMix => StyleMix(
         gap(16),
         mainAxis(MainAxisAlignment.center),
         font(
@@ -64,7 +60,7 @@ class BasicMix extends StatelessWidget {
     @override
     Widget build(BuildContext context) {
       return FlexBox(
-        mix: flexBoxMix,
+        style: flexBoxMix,
         direction: Axis.vertical,
         children: const [
           TextMix('Item 1'),
@@ -75,9 +71,8 @@ class BasicMix extends StatelessWidget {
     }
   }
 ''',
-  ICONMIX_SAMPLE:
-'''
-  Mix get iconMix => Mix(
+    ICONMIX_SAMPLE: '''
+  StyleMix get iconMix => StyleMix(
         icon(
           color: Colors.blue,
           size: 50,
@@ -90,29 +85,28 @@ class BasicMix extends StatelessWidget {
     @override
     Widget build(BuildContext context) {
       return IconMix(
-        mix: iconMix,
+        style: iconMix,
         icon: Icons.desktop_mac_outlined,
       );
     }
   }
 ''',
-  PRESSABLE_SAMPLE:
-'''
-  Mix get pressableMix => Mix(
+    PRESSABLE_SAMPLE: '''
+  StyleMix get pressableMix => StyleMix(
         elevation(8),
         padding(20),
         rounded(30),
-        bgColor(Colors.white),
+        backgroundColor(Colors.white),
         border(
           color: Colors.black,
           width: 2,
         ),
-        hover(
+        onHover(
           border(
             color: Colors.green,
           ),
         ),
-        press(
+        onPress(
           elevation(1),
           border(
             color: Colors.green,
@@ -128,22 +122,21 @@ class BasicMix extends StatelessWidget {
     Widget build(BuildContext context) {
       return Pressable(
         onPressed: () {},
-        mix: pressableMix,
+        style: pressableMix,
         child: const TextMix('Tap here'),
       );
     }
   }
 ''',
-  ANIMATED_PRESSABLE_SAMPLE:
-'''
-Mix get animPressableMix => Mix(
+    ANIMATED_PRESSABLE_SAMPLE: '''
+StyleMix get animPressableMix => StyleMix(
       elevation(8),
       padding(20),
       rounded(30),
-      bgColor(Colors.greenAccent),
-      animated(),
+      backgroundColor(Colors.greenAccent),
+      animation(),
       scale(1),
-      press(
+      onPress(
         scale(0.9),
         elevation(1),
       ),
@@ -156,15 +149,14 @@ class AnimatedPressableSample extends StatelessWidget {
   Widget build(BuildContext context) {
     return Pressable(
       onPressed: () {},
-      mix: animPressableMix,
-      child: const TextMix('Animated Button'),
+      style: animPressableMix,
+      child: const TextMix('animation Button'),
     );
   }
 }
 ''',
-  TEXTMIX_SAMPLE:
-'''
-Mix get textMix => Mix(
+    TEXTMIX_SAMPLE: '''
+StyleMix get textMix => StyleMix(
       font(
         color: Colors.green,
         size: 24,
@@ -178,19 +170,18 @@ class TextMixSample extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextMix(
       'Welcome to Mix',
-      mix: textMix,
+      style: textMix,
     );
   }
 }
 ''',
-  DESIGN_TOKENS_SAMPLE:
-'''
-Mix get basicMix => Mix(
+    DESIGN_TOKENS_SAMPLE: '''
+StyleMix get basicMix => StyleMix(
       height(150),
       width(150),
       rounded(20),
       elevation(8),
-      bgColor(\$primary),
+      backgroundColor(\$M3Color.primary),
     );
 
 class DesignTokensSample extends StatelessWidget {
@@ -199,15 +190,14 @@ class DesignTokensSample extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Box(
-      mix: basicMix,
+      style: basicMix,
     );
   }
 }
 '''
-};
+  };
 
-  String fetchCode(String sampleName) =>
-     _snippets.containsKey(sampleName)?
-      _snippets[sampleName]! :
-      "No Code for $sampleName";
+  String fetchCode(String sampleName) => _snippets.containsKey(sampleName)
+      ? _snippets[sampleName]!
+      : "No Code for $sampleName";
 }

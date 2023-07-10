@@ -42,7 +42,7 @@ class _CustomWidgetState extends State<CustomWidget> {
           ),
           child: Text(
             'Custom Widget',
-            style: Theme.of(context).textTheme.button?.copyWith(
+            style: Theme.of(context).textTheme.labelLarge?.copyWith(
                   color: _isHover
                       ? colorScheme.onSecondary
                       : colorScheme.onPrimary,

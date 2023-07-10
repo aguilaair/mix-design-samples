@@ -6,26 +6,27 @@ class CustomMixWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final style = Mix(
+    final mix = StyleMix(
       height(100),
-      animated(),
+      animation(),
       padding(10),
       elevation(8),
       rounded(10),
-      bgColor($primary),
-      textStyle($button),
-      textColor($onPrimary),
-      hover(
+      backgroundColor($M3Color.primary),
+      textStyle(as: $M3Text.bodyMedium, color: $M3Color.onPrimary),
+      onHover(
         elevation(2),
         padding(20),
-        bgColor($secondary),
-        textColor($onSecondary),
+        backgroundColor($M3Color.secondary),
+        textStyle(as: $M3Text.bodyMedium, color: $M3Color.onSecondary),
       ),
     );
-    return Pressable(
-      onPressed: () {},
-      mix: style,
-      child: const TextMix('Custom Widget'),
+    return StyledContainer(
+      style: mix,
+      child: Pressable(
+        onPressed: () {},
+        child: const StyledText('Custom Widget'),
+      ),
     );
   }
 }

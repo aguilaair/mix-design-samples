@@ -1,21 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:mix/mix.dart';
 
-Mix get pressableMix => Mix(
+StyleMix get pressableMix => StyleMix(
       elevation(8),
       padding(20),
       rounded(30),
-      bgColor(Colors.white),
+      backgroundColor(Colors.white),
       border(
         color: Colors.black,
         width: 2,
       ),
-      hover(
+      onHover(
         border(
           color: Colors.green,
         ),
       ),
-      press(
+      onPress(
         elevation(1),
         border(
           color: Colors.green,
@@ -31,8 +31,10 @@ class PressableSample extends StatelessWidget {
   Widget build(BuildContext context) {
     return Pressable(
       onPressed: () {},
-      mix: pressableMix,
-      child: const TextMix('Tap here'),
+      child: StyledText(
+        'Tap here',
+        style: pressableMix,
+      ),
     );
   }
 }
